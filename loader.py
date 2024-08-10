@@ -5,7 +5,7 @@ from planet import Planet
 from starship import Starship
 from vehicle import Vehicle
 from species import Species
-
+###cargar la api, y covertir los datos a opjetos
 def load_films():
     url = "https://www.swapi.tech/api/films"
     while url:
