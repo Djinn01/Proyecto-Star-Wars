@@ -1,5 +1,6 @@
 import sys
 from listings import view_films, view_species, view_planets, search_character
+from stats import homeworld_characters_comparison, starships_characteristics
 
 def main_menu():
     print("Welcome to Star Wars Explorer!")
@@ -34,6 +35,7 @@ def view_listings_menu():
 
     if choice == '1':
         view_films()
+
     elif choice == '2':
         view_species()
     elif choice == '3':
@@ -48,8 +50,25 @@ def view_listings_menu():
 
 def view_statistics_menu():
     print("\n--- View Statistics ---")
-    print("Statistics menu is currently empty.")
-    main_menu()
+    print("1. Graphic homeworld of characters")
+    print("2. Starships characteristics")
+    print("3. Back to Main Menu")
+
+    choice = input("Please choose a stat to view: ")
+    
+    if choice == '1':
+        homeworld_characters_comparison()
+        view_statistics_menu()
+    elif choice == '2':
+        starships_characteristics()
+        view_statistics_menu()
+    elif choice == '3':
+        main_menu()
+    else:
+        print("Invalid choice, please try again.")
+        view_statistics_menu()
+
+    
 
 def view_missions_menu():
     print("\n--- View Missions ---")
