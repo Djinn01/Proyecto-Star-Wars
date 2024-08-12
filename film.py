@@ -1,6 +1,6 @@
 class Film:
     film_list = []
-
+#definir la clase
     def __init__(self, title, episode_id, opening_crawl, director, producer, release_date, characters, planets, starships, vehicles, species):
         self.title = title
         self.episode_id = episode_id
