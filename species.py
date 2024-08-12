@@ -1,6 +1,6 @@
 class Species:
     species_list = []
-
+    #definir la clase
     def __init__(self, name, classification, designation, average_height, skin_colors, hair_colors, eye_colors, average_lifespan, homeworld, language, people, url):
         self.name = name
         self.classification = classification
