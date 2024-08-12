@@ -5,7 +5,7 @@ from planet import Planet
 from people import People
 from starship import Starship
 from vehicle import Vehicle
-
+#ver attributos de las peliculas
 def view_films():
     for film in Film.film_list:
         print(f"\nTitle: {film.title}")
@@ -15,7 +15,7 @@ def view_films():
         print(f"Director: {film.director}")
     input("\nPress Enter to return to the listings menu...")
     menu.view_listings_menu()
-
+#ver atributos de los tipos de especies
 def view_species():
     species_list_sorted = sorted(Species.species_list, key=lambda x: x.url)
 
@@ -37,7 +37,7 @@ def view_species():
 
     input("\nPress Enter to return to the listings menu...")
     menu.view_listings_menu()
-
+#ver atributos de los planetas
 def view_planets():
     for planet in Planet.planet_list:
         print(f"\nName: {planet.name}")
@@ -54,7 +54,7 @@ def view_planets():
 
     input("\nPress Enter to return to the listings menu...")
     menu.view_listings_menu()
-
+#buscar personajes de la franquicia con una busqueda a caracteres
 def search_character():
     search_query = input("Enter the character name or part of the name to search: ").lower()
     matching_characters = [person for person in People.people_list if search_query in person.name.lower()]
