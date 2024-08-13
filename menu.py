@@ -1,12 +1,16 @@
 import sys
+from starship import Starship
 from listings import view_films, view_species, view_planets, search_character
-
+from mission import mission_admin
+from estadisticas import ShipsStats
+#funcion de menu 
 def main_menu():
     print("Welcome to Star Wars Explorer!")
     print("1. View Listings")
     print("2. View Statistics")
     print("3. View Missions")
-    print("4. Exit")
+    print("4. View Ships statistics")
+    print("5. Exit")
 
     choice = input("Please choose an option: ")
 
@@ -15,8 +19,10 @@ def main_menu():
     elif choice == '2':
         view_statistics_menu()
     elif choice == '3':
-        view_missions_menu()
+        mission_admin()
     elif choice == '4':
+        ShipStats.mostrar_estadísticas_de_naves(Starship.starship_list)
+    elif choice == '5':
         exit_program()
     else:
         print("Invalid choice, please try again.")
@@ -49,11 +55,6 @@ def view_listings_menu():
 def view_statistics_menu():
     print("\n--- View Statistics ---")
     print("Statistics menu is currently empty.")
-    main_menu()
-
-def view_missions_menu():
-    print("\n--- View Missions ---")
-    print("Missions menu is currently empty.")
     main_menu()
 
 def exit_program():
