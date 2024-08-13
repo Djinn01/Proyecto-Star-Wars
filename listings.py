@@ -24,7 +24,11 @@ def view_species():
         print(f"Average Height: {species.average_height}")
         print(f"Classification: {species.classification}")
 
-        homeworld_name = next((planet.name for planet in Planet.planet_list if planet.url == species.homeworld), "Unknown")
+        homeworld_name = "Unknown"
+        for planet in Planet.planet_list:
+            if planet.url == species.homeworld:
+                homeworld_name = planet.name
+                break 
         print(f"Homeworld: {homeworld_name}")
 
         print(f"Language: {species.language}")
@@ -65,7 +69,11 @@ def search_character():
         for person in matching_characters:
             print(f"\nName: {person.name}")
 
-            homeworld_name = next((planet.name for planet in Planet.planet_list if planet.url == person.homeworld), "Unknown")
+            homeworld_name = "Unknown"
+            for planet in Planet.planet_list:
+                if planet.url == person.homeworld:
+                    homeworld_name = planet.name
+                    break
             print(f"Homeworld: {homeworld_name}")
 
             film_titles = [f"{film.title}, episode {film.episode_id}" for film in Film.film_list if person.url in film.characters]
@@ -73,7 +81,11 @@ def search_character():
 
             print(f"Gender: {person.gender}")
 
-            species_name = next((species.name for species in Species.species_list if person.url in species.people), "Unknown")
+            species_name = "Unknown"
+            for species in Species.species_list:
+                if person.url in species.people:
+                    species_name = species.name
+                    break
             print(f"Species: {species_name}")
 
             starship_names = [starship.name for starship in Starship.starship_list if person.url in starship.pilots]
