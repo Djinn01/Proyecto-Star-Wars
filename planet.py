@@ -15,18 +15,18 @@ class Planet:
         Planet.planet_list.append(self)
 #funciones para cambiar de objetos a diccionarios y vice versa para poder subir y cargar los datos del txt
     def __str__(self):
-        return f"Name: {self.name}, Climate: {self.climate}, Population: {self.population}"
+        return f"Name: {self.name}, rotation period: {self.rotation_period}, orbital period: {self.orbital_period}, diameter: {self.diameter}, Climate: {self.climate}, gravity: {self.gravity}, terrain: {self.terrain}, surface water: {self.surface_water}, Population: {self.population}, url: {self.url}"
     def to_dict(self):
-        return {"name":self.name, "Climate":f"{self.climate}", "Population":self.population}
+        return {"Name": {self.name}, "rotation period": self.rotation_period, "orbital period": self.orbital_period, "diameter": self.diameter, "Climate": self.climate, "gravity": self.gravity, "terrain": self.terrain, "surface water": self.surface_water, "Population": self.population, "url": self.url}
     def from_dict(cls, dict_data):
         return cls(name=dict_data["name"], 
-                rotation_period=None,
-                orbital_period=None,
-                diameter=None,
+                rotation_period=dict_data["rotation period"],
+                orbital_period=dict_data["orbital period"],
+                diameter=dict_data["diameter"],
                 climate=dict_data["Climate"],
-                gravity=None,
-                terrain=None,
-                surface_water=None,
+                gravity=dict_data["gravity"],
+                terrain=dict_data["terrain"],
+                surface_water=dict_data["surface water"],
                 population=dict_data["Population"],
-                url=None
+                url=dict_data["url"]
                 )
